@@ -22,7 +22,6 @@ function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: any) {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await runMiddleware(req, res, cors);
-
   const { id, secret } = req.query;
 
   if (!secret && !process.env.NOTION_API_KEY) {
