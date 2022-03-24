@@ -44,8 +44,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const database = data.results
-    .filter((d: any) => d.properties.Content.title.length > 0)
+  const database = data.results?.filter((d: any) => d.properties.Content.title.length > 0)
     .map((d: any) => ({
       title: d.properties.Title.rich_text[0].plain_text,
       content: d.properties.Content.title
