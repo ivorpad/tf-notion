@@ -40,11 +40,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     .map((d: any) => ({
       title: d.properties.Title.rich_text[0].plain_text,
       content: d.properties.Content.title.map((t: any) => t.plain_text).join(" "),
-      category: d.properties.Category.multi_select[0].name,
+      category: d.properties.Category.multi_select[0]?.name,
     }));
 
 
-  return res.json(JSON.stringify({ response: database }));
+  return res.json({ response: database });
 }
 
 export default handler  
